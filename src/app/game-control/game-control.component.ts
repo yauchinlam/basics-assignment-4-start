@@ -7,7 +7,7 @@ import { Observable, timer } from 'rxjs';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-@Output() incrementor = new EventEmitter<{incrementing:number}>();
+@Output() incrementor = new EventEmitter<{incrementi:number}>();
 incrementing: number;
 start:boolean;
   constructor() { 
@@ -20,7 +20,7 @@ start:boolean;
   Start()
   {
     setInterval(() => {
-        this.incrementing++;
+        this.incrementor.emit({incrementi: this.incrementing++});
   }, 1000);
   }
  
