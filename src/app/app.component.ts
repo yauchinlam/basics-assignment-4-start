@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'basics-assignment-4-start';
+  oddNumbers:number[]=[];
+  evenNumbers:number[]=[];
+  onIncrementAdded(intervalnumber:number)
+  {
+    if(intervalnumber % 2 ==0)
+    {
+      this.evenNumbers.push(intervalnumber);
+    }
+    else
+    {
+      this.oddNumbers.push(intervalnumber);
+    }
+  }
 }

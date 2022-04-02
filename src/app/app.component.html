@@ -2,7 +2,10 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-game-control></app-game-control>
+      <app-game-control
+      (incrementor)="onIncrementAdded($event)"></app-game-control>
+      <app-odd *ngFor ="let evenNumber of evenNumbers" [number]="evenNumber"></app-odd>
+      <app-even *ngFor ="let oddNumber of oddNumbers" [check]="oddNumber"></app-even>
     </div>
   </div>
 </div>

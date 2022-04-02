@@ -7,25 +7,24 @@ import { Observable, timer } from 'rxjs';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-@Output() incrementor = new EventEmitter<{incrementi:number}>();
+@Output() incrementor = new EventEmitter<number>();
 incrementing: number;
-start:boolean;
+handler;
   constructor() { 
     this.incrementing=0;
-    this.start = true;
   }
   ngOnInit(): void {
   }
 
   Start()
   {
-    setInterval(() => {
-        this.incrementor.emit({incrementi: this.incrementing++});
+    this.handler = setInterval(() => {
+        this.incrementor.emit(this.incrementing++);
+        console.log(this.incrementing)
   }, 1000);
   }
  
   Stop(){
-    clearInterval();
+    clearInterval(this.handler);
   }
-
 }
